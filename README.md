@@ -5,7 +5,7 @@
 
 <h1 align='center'>CPU dagi 'siz'</h1>
 <p align='center'>Kompyuteringiz dasturlarni boshidan oxirigacha qanday ishlashini texnik tushuntiruvchi.</p>
-<p align='center'>by <a href='https://github.com/kognise'>@kognise</a> and <a href='https://github.com/hackclub'>@hackclub</a></p>
+<p align='center'><a href='https://github.com/kognise'>@kognise</a> va <a href='https://github.com/hackclub'>@hackclub</a> tomonidan</p>
 <br>
 
 ## From the beginning...
