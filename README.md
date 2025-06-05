@@ -20,8 +20,8 @@ Bilasiz-ku, bir gap bor: agar biror narsani boshqalarga tushuntira olsangizgina,
 
 > Shoshyapsizmi? Yoki bu narsalarni allaqachon bilaman, deb o‘ylayapsizmi?
 >
-> [Read chapter 3](https://cpu.land/how-to-run-a-program) va men sizga yangi nimadir o'rganishingizni kafolatlayman. Agar siz Linus Torvaldsga o'xshamasangiz.
+> [3 bobni o'qish](https://cpu.land/how-to-run-a-program) va men sizga yangi nimadir o'rganishingizni kafolatlayman. Agar siz Linus Torvaldsga o'xshamasangiz.
 
 <br>
 
-<p align='center'><a href='https://cpu.land/the-basics'><strong>Continue to Chapter 1: The "Basics" &raquo;</strong><br>(cpu.land)</a></p>
+<p align='center'><a href='https://cpu.land/the-basics'><strong>1 bob: "Asoslar" &raquo;</strong><br>(cpu.land)</a></p>
