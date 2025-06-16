@@ -1,70 +1,70 @@
 ---
 chapter: 1
-title: The “Basics”
-shortname: Basics
+title: "Asoslar"
+shortname: Asoslar
 slug: the-basics
 updatedAt: 2023-07-19T18:57:54.630Z
 ---
 
-The one thing that surprised me over and over again while writing this article was how *simple* computers are. It's still hard for me not to psych myself out, expecting more complexity or abstraction than actually exists! If there's one thing you should burn into your brain before continuing, it's that everything that seems simple actually is that simple. This simplicity is very beautiful and sometimes very, very cursed.
+Ushbu maqolani yozish davomida meni takror-takror hayratga solgan narsa shuki — kompyuterlar aslida juda oddiy tuzilmaga ega ekan. Hanuzgacha o‘zimni qiynab, ularni haddan tashqari murakkab yoki chuqurroq abstraksiyalarga asoslangan deb o‘ylashga urinishimdan o‘zimni to‘xtatishim qiyin. Agar davom etishdan oldin miyangizda muhrlab qo‘yishingiz kerak bo‘lgan bitta fikr bo‘lsa, u ham shu bo‘lsin: sizga oddiy tuyulgan narsa, aslida ham oddiydir. Bu soddalik — ba’zida juda go‘zal, ba’zida esa juda, juda axmoqona bo‘lishi mumkin.
 
-Let's start with the basics of how your computer works at its very core.
+Keling, kompyuteringiz qanday ishlashini asosiy jihatlaridan boshlaylik.
 
-## How Computers Are Architected
+## Kompyuterlar qanday tuzilgan
 
-The *central processing unit* (CPU) of a computer is in charge of all computation. It's the big cheese. The shazam alakablam. It starts chugging as soon as you start your computer, executing instruction after instruction after instruction.
+*Markaziy protsessor* (CPU) kompyuterning barcha hisob kitoblari uchun javobgardir. Eng muhim jihati shuki: kompyuteringizni yoqqaningiz zahoti u ishga tushadi va to‘xtovsiz buyruq ustidan buyruqlarni bajarishni boshlaydi.
 
-The first mass-produced CPU was the [Intel 4004](http://www.intel4004.com/), designed in the late 60s by an Italian physicist and engineer named Federico Faggin. It was a 4-bit architecture instead of the [64-bit](https://en.wikipedia.org/wiki/64-bit_computing) systems we use today, and it was far less complex than modern processors, but a lot of its simplicity does still remain.
+Birinchi ishlab chiqilgan CPU [Intel 4004](http://www.intel4004.com/) edi, 60-yillarning oxirida italiyalik fizik va muhandis Federiko Faggin tomonidan ishlab chiqilgan. Bu — hozirgi zamonaviy [64-bit](https://en.wikipedia.org/wiki/64-bit_computing) tizimlardan farqli o‘laroq, 4-bitli arxitektura edi, va u zamonaviy protsessorlarga nisbatan ancha sodda bo‘lgan, biroq uning soddaligi bugungi protsessorlarda ham ma'lum darajada saqlanib qolgan.
 
-The "instructions" that CPUs execute are just binary data: a byte or two to represent what instruction is being run (the opcode), followed by whatever data is needed to run the instruction. What we call *machine code* is nothing but a series of these binary instructions in a row. [Assembly](https://en.wikipedia.org/wiki/Assembly_language) is a helpful syntax for reading and writing machine code that's easier for humans to read and write than raw bits; it is always compiled to the binary that your CPU knows how to read.
+CPU tomonidan bajariladigan “buyruqlar” — bu shunchaki ikkilik (binary) ma’lumotdan iborat: odatda bir yoki ikki bayt buyruqning o‘zini ifodalaydi (ya’ni opcode), undan keyin esa buyruqni bajarish uchun kerakli qo‘shimcha ma’lumotlar keladi.Biz “mashina kodi” deb ataydigan narsa — aslida ketma-ket joylashgan ana shu ikkilik buyruqlar to‘plamidan boshqa narsa emas. [Assembly](https://en.wikipedia.org/wiki/Assembly_language) — mashina kodini yozish va o‘qishni osonlashtiradigan inson uchun qulay sintaksis bo‘lib, u doimo CPU tushuna oladigan ikkilik kodga kompilyatsiya qilinadi.
 
 <img src='/images/assembly-to-machine-code-translation.png' loading='eager' style='max-width: 400px;' alt='A diagram demonstrating how machine code translates to assembly and back. A bidirectional arrow connects three examples: Machine Code (Binary) followed by 3 bytes of binary numbers, Machine Code (Hex) followed by those 3 bytes translated to hex (0x83, 0xC3, 0x0A), and Assembly followed by "add ebx, 10". The Assembly and Machine Code are color-coded so it is clear that each byte of the machine code translate to one word in the assembly.' width='935' height='505' />
 
-> An aside: instructions aren't always represented 1:1 in machine code as in the above example. For example, `add eax, 512` translates to `05 00 02 00 00`.
+> Qo‘shimcha eslatma: buyruqlar har doim mashina kodida yuqoridagi misoldagidek 1:1 nisbatda ifodalanmaydi. Masalan, `add eax, 512` buyrug‘i mashina kodida quyidagicha tarjima qilinadi: `05 00 02 00 00`.
 > 
-> The first byte (`05`) is an opcode specifically representing *adding the EAX register to a 32-bit number*. The remaining bytes are 512 (`0x200`) in [little-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
+> Birinchi bayt (05) — bu EAX registriga 32-bitli son qo‘shish buyrug‘ini ifodalovchi maxsus opcode (buyruq kodi). Qolgan baytlar esa 512 (0x200) sonining [little-endian](https://en.wikipedia.org/wiki/Endianness) bayt tartibida yozilgan ko‘rinishidir.
 >
-> Defuse Security created [a helpful tool](https://defuse.ca/online-x86-assembler.htm) for playing around with the translation between assembly and machine code.
+> Defuse Security assembly va mashina kodi bir biriga qanday aylanishi ko'rish va tajriba qilish uchun [foydali vosita](https://defuse.ca/online-x86-assembler.htm) yaratgan.
 
-RAM is your computer's main memory bank, a large multi-purpose space which stores all the data used by programs running on your computer. That includes the program code itself as well as the code at the core of the operating system. The CPU always reads machine code directly from RAM, and code can't be run if it isn't loaded into RAM.
+RAM kompyuteringizning asosiy xotira qurilmasidir unda kompyuteringizda ishlayotgan dasturlar foydalanadigan barcha ma’lumotlar saqlanadi. Bu ma’lumotlarga dastur kodi ham, operatsion tizimning yadrosi (core) ishlayotgan kodlari ham kiradi. CPU (markaziy protsessor) mashina kodini doimiy ravishda RAMdan o‘qiydi, va har qanday kod RAM ga yuklanmaguncha uni ishlatib bo‘lmaydi.
 
-The CPU stores an *instruction pointer* which points to the location in RAM where it's going to fetch the next instruction. After executing each instruction, the CPU moves the pointer and repeats. This is the *fetch-execute cycle*.
+CPUda instruction pointer (IP) mavjud bo‘lib, u keyingi bajarilishi kerak bo‘lgan buyruq manzilini saqlaydi. Har bir buyruq bajarilgach, CPU IP ni yangilaydi va jarayon takrorlanadi. Bu jarayon fetch-execute cycle (CPU keyingi bajarilishi kerak bo‘lgan buyruqni RAMdan oladi. Bu buyruq manzili instruction pointer (IP) yordamida aniqlanadi va bajariladi) deb ataladi.
 
 <img src='/images/fetch-execute-cycle.png' loading='lazy' style='max-width: 360px; margin: 0 auto;' alt='A diagram demonstrating the fetch-execute cycle. There are two bubbles of text. The first is labeled "Fetch" and has the text "Read instruction from memory at the current instruction pointer." The second is titled "Execute" and has the text "Run the instruction and then move the instruction pointer." The fetch bubble has an arrow pointing to the execute bubble, and the execute bubble has an arrow pointing back to the fetch bubble, implying a repeated process.' width='848' height='458' />
 
-After executing an instruction, the pointer moves forward to immediately after the instruction in RAM so that it now points to the next instruction. That's why code runs! The instruction pointer just keeps chugging forward, executing machine code in the order in which it has been stored in memory. Some instructions can tell the instruction pointer to jump somewhere else instead, or jump different places depending on a certain condition; this makes reusable code and conditional logic possible.
+Buyruq bajarilgandan so‘ng, IP (instruction pointer) RAMdagi keyingi buyruq joylashgan manzilga siljiydi. Buyruqlar qanday tartibda yozilgan bo‘lsa IP xotiradan shuni ketma-ket o‘qib, bajara boshlaydi. Ba’zi buyruqlar esa IP’ga boshqa joyga o’tishni buyuradi — ya’ni, “sakrash”ni. Ba'zilari esa bu sakrashni faqat ma’lum bir shart bajarilganda amalga oshiradi. Bu esa shartli kodlar(masalan `if`) va qayta ishlatiladigan kodlar(masalan `function`) yozish imkonini beradi.
 
-This instruction pointer is stored in a [*register*](https://en.wikipedia.org/wiki/Processor_register). Registers are small storage buckets that are extremely fast for the CPU to read and write to. Each CPU architecture has a fixed set of registers, used for everything from storing temporary values during computations to configuring the processor.
+Bu IP(intructione pointer) [*register*](https://en.wikipedia.org/wiki/Processor_register) da saqlanadi. Registrlar — bu CPU o‘qishi va yozishi uchun juda tez ishlovchi kichik xotira bo‘laklaridir. Har bir CPU arxitekturasida qat’iy belgilangan registrlar to‘plami mavjud, Ular hisoblash jarayonida vaqtincha qiymatlarni saqlashdan tortib, protsessorni sozlashgacha bo‘lgan barcha vazifalarda ishlatiladi.
 
-Some registers are directly accessible from machine code, like `ebx` in the earlier diagram.
+Ba’zi registrlarga mashina kodi orqali bevosita murojaat qilish mumkin, masalan, oldingi rasmdagi `ebx` registri kabi.
 
-Other registers are only used internally by the CPU, but can often be updated or read using specialized instructions. One example is the instruction pointer, which can't be read directly but can be updated with, for example, a jump instruction.
+Ba’zi registrlar faqat CPU ichida ishlatiladi, biroq ko‘pincha maxsus ko‘rsatmalar yordamida ularni o‘qish yoki yangilash mumkin. Masalan, instruction pointer (IP) bevosita o‘qib bo‘lmaydi, ammo uni masalan, sakrash (jump) ko‘rsatmasi orqali yangilash mumkin.
 
-## Processors Are Naive
+## Protsessorlar sodda
 
-Let's go back to the original question: what happens when you run an executable program on your computer? First, a bunch of magic happens to get ready to run it — we’ll work through all of this later — but at the end of the process there’s machine code in a file somewhere. The operating system loads this into RAM and instructs the CPU to jump the instruction pointer to that position in RAM. The CPU continues running its fetch-execute cycle as usual, so the program begins executing!
+Keling, asl savolga qaytaylik: kompyuteringizda dasturni ishga tushirganingizda nima sodir bo‘ladi? Avvalo, uni ishga tushirishga tayyorlash uchun bir qancha murakkab jarayonlar amalga oshadi — bularni keyinroq batafsil ko‘rib chiqamiz — ammo jarayon oxirida mashina kodi fayl ko‘rinishida mavjud bo‘ladi. Operatsion tizim bu kodni RAMga yuklaydi va CPUga ko‘rsatkichni (instruction pointer) shu RAMdagi manzilga o‘tkazishni buyuradi. CPU esa odatdagidek fetch-execute siklini davom ettiradi va shu tariqa dastur bajarila boshlaydi!
 
-(This was one of those psyching-myself-out moments for me — seriously, this is how the program you are using to read this article is running! Your CPU is fetching your browser's instructions from RAM in sequence and directly executing them, and they're rendering this article.)
+(Bu men uchun o‘zimni chalg‘itayotgan paytlardan biri edi — jiddiy aytaman, aynan shu tarzda siz hozir ushbu maqolani o‘qiyotgan dastur ishlamoqda! Sizning CPU’ingiz brauzeringizning buyruqlarini RAM’dan ketma-ket olib, to‘g‘ridan-to‘g‘ri bajarib bormoqda va ular ayni paytda ushbu maqolani ekranga chiqarishyapti.)
 
 <img src='/images/instruction-pointer.png' loading='lazy' style='max-width: 400px;' alt='A diagram depicting a series of bytes of machine code in RAM. A highlighted byte is pointed to by an arrow labeled "Instruction Pointer," and there are arrows representing how the instruction pointer moves forward in RAM.' width='935' height='372' />
 
-It turns out CPUs have a super basic worldview; they only see the current instruction pointer and a bit of internal state. Processes are entirely operating system abstractions, not something CPUs natively understand or keep track of.
+Ma’lum bo‘lishicha, CPUlar juda sodda dunyoqarashga ega; ular faqat hozirgi IP(instruction pointer) va ichki holatning bir qismini ko‘radi. Jarayonlar butunlay operatsion tizimning abstraktsiyalari bo‘lib, CPUlar ularni tabiiy ravishda tushunmaydi yoki nazorat qilmaydi.
 
-*\*waves hands\* processes are abstractions made up by ~~os devs~~ big byte to sell more computers*
+*Jarayonlar — bu operatsion tizim dasturchilari tomonidan yaratilgan abstraktsiyalar, katta kompaniyalar esa shular yordamida ko‘proq kompyuter sotishni maqsad qilgan, \*ular shunchaki bu narsani hayratlanarli qilib ko‘rsatishadi.\**
 
-For me, this raises more questions than it answers:
+Men uchun bu javobdan ko‘ra ko‘proq savollar tug‘diradi:
 
-1. If the CPU doesn’t know about multiprocessing and just executes instructions sequentially, why doesn’t it get stuck inside whatever program it’s running? How can multiple programs run at once?
-2. If programs run directly on the CPU, and the CPU can directly access RAM, why can't code access memory from other processes, or, god forbid, the kernel?
-3. Speaking of which, what's the mechanism that prevents every process from running any instruction and doing anything to your computer? AND WHAT'S A DAMN SYSCALL?
+1. Agar CPU ketma-ket buyruqlarni bajarib, ko‘pjarayonlilikni(multiprocessing) tushunmasa, u ishga tushirgan dastur ichida qanday qilib to‘xtab yoki bloklanib qolmaydi? Bir nechta dasturlar bir vaqtning o‘zida qanday ishlay oladi?
+2. Agar dasturlar to‘g‘ridan-to‘g‘ri CPUda ishlasa va CPU RAMga to‘g‘ridan-to‘g‘ri kira olsa, unda nima uchun kod boshqa jarayonlarning xotirasiga yoki, undan ham yomoni, yadro (kernel) xotirasiga kira olmaydi?
+3. Gap kelganda, nima mexanizm har bir jarayonning istalgan buyruqni bajarib, kompyuteringizda istalgan ishni qilishidan to‘xtatadi? va haqiqatdan, SYSCALL nima?
 
-The question about memory deserves its own section and is covered in [chapter 5](/the-translator-in-your-computer) — the TL;DR is that most memory accesses actually go through a layer of misdirection that remaps the entire address space. For now, we're going to pretend that programs can access all RAM directly and computers can only run one process at once. We'll explain away both of these assumptions in time.
+Xotira haqida savol alohida bo‘limga ajratilgan va [5-bobda](/the-translator-in-your-computer) ko‘rib chiqilgan — qisqacha aytganda, CPU xotira bilan ishlashda, ba'zan to'g'ridan-to'g'ri manzillarga murojaat qilmaydi. Buning o'rniga, xotira manzillari boshqa joylarga "qayta joylashtiriladi", ya'ni boshqacha tarzda o'qiladi yoki yoziladi. Bu esa manzillarni boshqarishning o'ziga xos usuli bo'lib, ko'pincha tezlikni va xavfsizlikni oshirishga yordam beradi. Hozircha, biz dasturlar barcha RAMga to'g'ridan-to'g'ri kirishi mumkin va kompyuterlar bir vaqtning o'zida faqat bitta jarayonni bajarishi mumkin deb o'ylaymiz. Biz bu ikki taxminni o'z vaqtida tushuntirib beramiz.Endi biz syscall'lar va xavfsizlik halqalari dunyosiga birinchi qadamni qo'yamiz.
 
-It's time to leap through our first rabbit hole into a land filled with syscalls and security rings.
+Endi biz syscall'lar va [xavfsizlik uchun imtiyoz darajalari](https://en.wikipedia.org/wiki/Protection_ring) dunyosiga birinchi qadamni qo'yamiz.
 
-> **Aside: what is a kernel, btw?**
+> **Aside: Aytgancha Kernel o'zi nima?**
 > 
-> Your computer's operating system, like macOS, Windows, or Linux, is the collection of software that runs on your computer and makes all the basic stuff work. "Basic stuff" is a really general term, and so is "operating system" — depending on who you ask, it can include such things as the apps, fonts, and icons that come with your computer by default.
+> Kompyuteringizning operatsion tizimi, masalan, macOS, Windows yoki Linux, — bu kompyuteringizda ishlaydigan va barcha asosiy funksiyalarni bajaradigan dasturiy ta'minot to'plamidir. "Asosiy funksiyalar" juda umumiy bir atama, xuddi "operatsion tizim" kabi — kimdan so'rasangiz, bu atama kompyuteringiz bilan birga keladigan dasturlar, shriftlar va ikonkalar bo'lishi mumkin.
 > 
 > The kernel, however, is the core of the operating system. When you boot up your computer, the instruction pointer starts at a program somewhere. That program is the kernel. The kernel has near-full access to your computer's memory, peripherals, and other resources, and is in charge of running software installed on your computer (known as userland programs). We'll learn about how the kernel has this access — and how userland programs don't — over the course of this article.
 >
