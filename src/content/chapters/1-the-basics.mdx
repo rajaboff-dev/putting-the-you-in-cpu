@@ -64,11 +64,12 @@ Endi biz syscall'lar va [xavfsizlik uchun imtiyoz darajalari](https://en.wikiped
 
 > **Aside: Aytgancha Kernel o'zi nima?**
 > 
-> Kompyuteringizning operatsion tizimi, masalan, macOS, Windows yoki Linux, — bu kompyuteringizda ishlaydigan va barcha asosiy funksiyalarni bajaradigan dasturiy ta'minot to'plamidir. "Asosiy funksiyalar" juda umumiy bir atama, xuddi "operatsion tizim" kabi — kimdan so'rasangiz, bu atama kompyuteringiz bilan birga keladigan dasturlar, shriftlar va ikonkalar bo'lishi mumkin.
+> Kompyuteringizdagi operatsion tizim — masalan, macOS, Windows yoki Linux — bu kompyuterni ishlatishga imkon beruvchi dasturiy ta'minotdir. U asosiy tizim vazifalarini bajaradi. “Asosiy vazifalar” degani turlicha talqin qilinishi mumkin: ba'zilar uchun bu tizim bilan birga keladigan dasturlar, shriftlar yoki ikonkalardir.
 > 
-> The kernel, however, is the core of the operating system. When you boot up your computer, the instruction pointer starts at a program somewhere. That program is the kernel. The kernel has near-full access to your computer's memory, peripherals, and other resources, and is in charge of running software installed on your computer (known as userland programs). We'll learn about how the kernel has this access — and how userland programs don't — over the course of this article.
+> Kernel esa operatsion tizimning eng asosiy, markaziy qismidir. Kompyuteringiz yoqilganda, dastlab bajariladigan buyruqlar aynan shu kernelga tegishlidir. Kernel kompyuteringizning xotirasi, qurilmalari (masalan, klaviatura, monitor, disklar) va boshqa resurslariga to‘liq yoki deyarli to‘liq kirish huquqiga ega. Shuningdek, u siz o‘rnatgan barcha dasturlarni — ya’ni foydalanuvchi darajasidagi (userland) dasturlarni — ishga tushirish va boshqarish uchun javobgardir. Ushbu maqolada biz kernelning qanday qilib bu darajadagi kirish huquqiga ega ekanini, va nima uchun foydalanuvchi darajasidagi dasturlar bu huquqlarga ega emasligini o‘rganamiz.
 >
-> Linux is just a kernel and needs plenty of userland software like shells and display servers to be usable. The kernel in macOS is called [XNU](https://en.wikipedia.org/wiki/XNU) and is Unix-like, and the modern Windows kernel is called the [NT Kernel](https://en.wikipedia.org/wiki/Architecture_of_Windows_NT).
+> Linux — bu faqat kernel bo‘lib, uni amalda foydalanish uchun unga ko‘plab foydalanuvchi darajasidagi(userland) dasturlar, masalan, shell lar va display server lar kerak bo‘ladi. macOS’dagi kernel "XNU" deb ataladigan Unix-ga o‘xshash tizim hisoblanadi.
+Zamonaviy Windows tizimi esa "NT Kernel" deb nomlangan kernel asosida ishlaydi.
 
 ## Two Rings to Rule Them All
 
